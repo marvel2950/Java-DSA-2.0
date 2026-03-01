@@ -24,5 +24,76 @@ public class LinkedlistImpl {
         }
         size++;
     }
+
+    public void addAtLast(int item) {
+        if (size == 0) {
+            addAtFirst(item);
+        } else {
+            Node nn = new Node(); // nn -> new node
+            nn.val = item;
+            tail.next = nn;
+            tail = nn;
+            size++;
+        }
+    }
+
+    public int getFirst() throws Exception {
+        if (size == 0) {
+            throw new Exception("Linked List is empty!");
+        }
+        return head.val;
+    }
+
+    public int getLast() throws Exception {
+        if (size == 0) {
+            throw new Exception("Linked List is empty!");
+        }
+        return tail.val;
+    }
+
+    public int removeFromFirst() throws Exception {
+        if (size == 0) {
+            throw new Exception("Linked List is empty!");
+        } else if (size == 1) {
+            Node rn = head; // rn -> removed node
+            head = null;
+            tail = null;
+            size--;
+            rn.next = null;
+            return rn.val;
+        } else {
+            Node rn = head;
+            head = head.next;
+            size--;
+            rn.next = null;
+            return rn.val;
+        }
+    }
+
+    private Node getNode(int k) {
+        Node temp = head;
+        for (int i = 0; i < k; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public int getIndex(int k) throws Exception {
+        if (size == 0) {
+            throw new Exception("Linked List is empty!");
+        }
+        return getNode(k).val;
+    }
+
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.val + " --> ");
+            temp = temp.next;
+        }
+        System.out.println("END");
+    }
+
+
 }
 
