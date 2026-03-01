@@ -84,7 +84,7 @@ public class LinkedlistImpl {
             return rn.val;
         }
     }
-    
+
     private Node getNode(int k) {
         Node temp = head;
         for (int i = 0; i < k; i++) {
@@ -107,6 +107,22 @@ public class LinkedlistImpl {
             temp = temp.next;
         }
         System.out.println("END");
+    }
+
+    public void addAtIndex(int idx, int item) throws Exception {
+        if (idx == 0) {
+            addAtFirst(item);
+        } else if (idx == size - 1) {
+            addAtLast(item);
+        } else {
+            Node nn = new Node();
+            nn.val = item;
+            Node ln = getNode(idx - 1); // ln -> last node
+            Node next = ln.next;
+            ln.next = nn;
+            nn.next = next;
+            size++;
+        }
     }
 
 

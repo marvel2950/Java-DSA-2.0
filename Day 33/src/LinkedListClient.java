@@ -23,6 +23,9 @@ public class LinkedListClient {
         list.display();
 
         System.out.println(list.getIndex(2));
+
+        list.addAtIndex(1, 55);
+        list.display();
     }
 
 }
