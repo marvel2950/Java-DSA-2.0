@@ -21,6 +21,8 @@ public class LinkedListClient {
 
         list.removeFromFirst();
         list.display();
+
+        System.out.println(list.getIndex(2));
     }
 
 }

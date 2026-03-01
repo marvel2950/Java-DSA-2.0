@@ -70,6 +70,21 @@ public class LinkedlistImpl {
         }
     }
 
+    public int removeFromLast() throws Exception {
+        if (size == 0) {
+            return removeFromFirst();
+        } else if (size == 1) {
+            return removeFromFirst();
+        } else {
+            Node sl = getNode(size - 2);
+            Node rn = tail;
+            sl.next = null;
+            tail = sl;
+            size--;
+            return rn.val;
+        }
+    }
+    
     private Node getNode(int k) {
         Node temp = head;
         for (int i = 0; i < k; i++) {
