@@ -15,6 +15,7 @@ public class MiddleOfLinkedList {
         System.out.println(getLength(head));
         System.out.println(getMiddle1(head).val);
         System.out.println(getMiddle2(head).val);
+        System.out.println(getMiddleFirst(head).val);
     }
 
     public static int getLength(Node head) {
@@ -43,6 +44,17 @@ public class MiddleOfLinkedList {
     public static Node getMiddle2(Node head) {
         Node slow = head;
         Node fast = head;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public static Node getMiddleFirst(Node head) {
+        Node slow = head;
+        Node fast = head.next;
 
         while(fast != null && fast.next != null) {
             slow = slow.next;
