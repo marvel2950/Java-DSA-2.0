@@ -61,4 +61,24 @@ public class BinaryTree {
         display(root.right);
     }
 
+    public int max() {
+        return max(root);
+    }
+
+    private int max(Node node) {
+        if (node == null) {
+            return Integer.MIN_VALUE;
+        }
+        int lMax = max(node.left);
+        int rMax = max(node.right);
+
+        return Math.max(
+                node.val,
+                Math.max(
+                        lMax,
+                        rMax
+                )
+        );
+    }
+
 }
