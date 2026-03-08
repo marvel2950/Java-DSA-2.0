@@ -81,4 +81,34 @@ public class BinaryTree {
         );
     }
 
+    public boolean find(int item) {
+        return find(root, item);
+    }
+
+    private boolean find(Node root, int item) {
+        if(root == null) {
+            return false;
+        }
+
+        if(root.val == item) {
+            return true;
+        }
+
+        boolean left = find(root.left, item);
+        if(left) {
+            return true;
+        }
+
+        boolean right = find(root.right, item);
+        if(right) {
+            return true;
+        }
+        return false;
+    }
+
 }
+
+
+
+
+
