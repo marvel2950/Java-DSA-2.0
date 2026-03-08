@@ -86,29 +86,38 @@ public class BinaryTree {
     }
 
     private boolean find(Node root, int item) {
-        if(root == null) {
+        if (root == null) {
             return false;
         }
 
-        if(root.val == item) {
+        if (root.val == item) {
             return true;
         }
 
         boolean left = find(root.left, item);
-        if(left) {
+        if (left) {
             return true;
         }
 
         boolean right = find(root.right, item);
-        if(right) {
+        if (right) {
             return true;
         }
         return false;
     }
 
+    public int height() {
+        return height(root);
+    }
+
+    private int height(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        int lh = height(root.left);
+        int rh = height(root.right);
+
+        return Math.max(lh, rh) + 1;
+    }
+
 }
-
-
-
-
-

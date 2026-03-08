@@ -5,6 +5,8 @@ public class BinaryTreeClient {
         System.out.println(bt.max());
         System.out.println(bt.find(10));
         System.out.println(bt.find(100));
+        System.out.println(bt.height());
+
     }
 
 }
