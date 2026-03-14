@@ -168,14 +168,33 @@ public class BinaryTree {
         levelOrder(root);
     }
 
+//    private void levelOrder(Node root) {
+//        Queue<Node> queue = new LinkedList<>();
+//        queue.add(root);
+//        while (!queue.isEmpty()) {
+//            Node nn = queue.poll();
+//            System.out.print(nn.val + " ");
+//            if(nn.left != null) queue.add(nn.left);
+//            if(nn.right != null) queue.add(nn.right);
+//
+//        }
+//        System.out.println();
+//    }
+
     private void levelOrder(Node root) {
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
+        queue.add(null);
         while (!queue.isEmpty()) {
             Node nn = queue.poll();
-            System.out.print(nn.val + " ");
-            if(nn.left != null) queue.add(nn.left);
-            if(nn.right != null) queue.add(nn.right);
+            if(nn == null) {
+                System.out.println();
+                if(!queue.isEmpty()) queue.add(null);
+            } else {
+                System.out.print(nn.val + " ");
+                if(nn.left != null) queue.add(nn.left);
+                if(nn.right != null) queue.add(nn.right);
+            }
         }
         System.out.println();
     }
