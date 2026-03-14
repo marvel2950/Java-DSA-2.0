@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -121,12 +123,12 @@ public class BinaryTree {
     }
 
     public void preOrder() {
-       preOrder(root);
-       System.out.println();
+        preOrder(root);
+        System.out.println();
     }
 
     private void preOrder(Node root) {
-        if(root == null) {
+        if (root == null) {
             return;
         }
         System.out.print(root.val + " ");
@@ -140,7 +142,7 @@ public class BinaryTree {
     }
 
     private void inOrder(Node root) {
-        if(root == null) {
+        if (root == null) {
             return;
         }
         inOrder(root.left);
@@ -154,12 +156,28 @@ public class BinaryTree {
     }
 
     private void postOrder(Node root) {
-        if(root == null) {
+        if (root == null) {
             return;
         }
         postOrder(root.left);
         postOrder(root.right);
         System.out.print(root.val + " ");
+    }
+
+    public void levelOrder() {
+        levelOrder(root);
+    }
+
+    private void levelOrder(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node nn = queue.poll();
+            System.out.print(nn.val + " ");
+            if(nn.left != null) queue.add(nn.left);
+            if(nn.right != null) queue.add(nn.right);
+        }
+        System.out.println();
     }
 
 }

@@ -10,7 +10,9 @@ public class BinaryTreeClient {
         bt.preOrder();
         bt.inOrder();
         bt.postOrder();
+        bt.levelOrder();
 
     }
 
 }
+
