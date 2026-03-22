@@ -9,5 +9,6 @@ public class MultiClass  implements  InterfaceA, InterfaceB{
         MultiClass mc = new MultiClass();
 
         mc.funA();
+        mc.funB();
     }
 }
