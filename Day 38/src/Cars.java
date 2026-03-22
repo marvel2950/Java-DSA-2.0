@@ -1,4 +1,4 @@
-public class Cars {
+public class Cars implements Comparable<Cars> {
     int price;
     int speed;
     String color;
@@ -16,5 +16,10 @@ public class Cars {
         this.price = price;
         this.speed = speed;
         this.color = color;
+    }
+
+    @Override
+    public int compareTo(Cars o) {
+        return this.price - o.price;
     }
 }
