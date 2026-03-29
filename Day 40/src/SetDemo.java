@@ -96,6 +96,21 @@ public class SetDemo {
         System.out.println(set2);
         System.out.println();
 
+        for(int val : set) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+
+        for(int val : set1) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+
+        for(int val : set2) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+
 
     }
 }
