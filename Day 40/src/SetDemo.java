@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.TreeSet;
 
 public class SetDemo {
     public static void main(String args[]) {
@@ -30,6 +31,36 @@ public class SetDemo {
         System.out.println(set.contains(22));
 
         System.out.println(set);
+        System.out.println();
+
+        TreeSet<Integer> set1 = new TreeSet<>();
+
+        set1.add(1);
+        set1.add(11);
+        set1.add(90);
+
+        set1.add(43);
+        set1.add(43);
+        set1.add(43);
+        set1.add(43);
+        set1.add(43);
+
+        set1.add(22);
+        set1.add(211);
+        set1.add(432);
+        set1.add(902);
+        set1.add(121);
+        set1.add(2111);
+
+        System.out.println(set1);
+
+        System.out.println(set1.contains(78));
+        System.out.println(set1.contains(22));
+
+        System.out.println(set1.remove(22));
+        System.out.println(set1.contains(22));
+
+        System.out.println(set1);
 
     }
 }
