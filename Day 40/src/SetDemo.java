@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
 public class SetDemo {
@@ -33,6 +34,7 @@ public class SetDemo {
         System.out.println(set);
         System.out.println();
 
+
         TreeSet<Integer> set1 = new TreeSet<>();
 
         set1.add(1);
@@ -61,6 +63,39 @@ public class SetDemo {
         System.out.println(set1.contains(22));
 
         System.out.println(set1);
+        System.out.println();
+
+
+        LinkedHashSet<Integer> set2 = new LinkedHashSet<>();
+
+        set2.add(1);
+        set2.add(11);
+        set2.add(90);
+
+        set2.add(43);
+        set2.add(43);
+        set2.add(43);
+        set2.add(43);
+        set2.add(43);
+
+        set2.add(22);
+        set2.add(211);
+        set2.add(432);
+        set2.add(902);
+        set2.add(121);
+        set2.add(2111);
+
+        System.out.println(set2);
+
+        System.out.println(set2.contains(78));
+        System.out.println(set2.contains(22));
+
+        System.out.println(set2.remove(22));
+        System.out.println(set2.contains(22));
+
+        System.out.println(set2);
+        System.out.println();
+
 
     }
 }
