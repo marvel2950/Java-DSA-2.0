@@ -13,10 +13,18 @@ public class GraphClient {
         System.out.println(g.noOfEdges());
 
         System.out.println(g.containsVertex(9));
-        System.out.println(g.containsVertex(1));
 
         System.out.println(g.containsEdge(1, 2));
-        System.out.println(g.containsEdge(6, 1));
+        g.removeEdge(1, 2);
+        System.out.println(g.containsEdge(1, 2));
+//        System.out.println(g.containsEdge(6, 1));
+
+        System.out.println(g.containsVertex(1));
+        g.removeVertex(1);
+        System.out.println(g.containsVertex(1));
+
+        g.display();
+
 
     }
 }

@@ -41,6 +41,28 @@ public class Graph {
         }
         return sum / 2;
     }
+
+    public void removeEdge(int v1, int v2) {
+        HashMap<Integer, Integer> innerMap1 = map.get(v1); // 5k
+        innerMap1.remove(v2);
+
+        HashMap<Integer, Integer> innerMap2 = map.get(v2); // 7k
+        innerMap1.remove(v1);
+    }
+
+    public void removeVertex(int v) {
+        for (int nbrs : map.get(v).keySet()) {
+            map.get(nbrs).remove(v);
+        }
+        map.remove(v);
+    }
+
+    public void display() {
+        for (int vtx : map.keySet()) {
+            HashMap<Integer, Integer> innerMap = map.get(vtx);
+            System.out.println(vtx + " --> " + innerMap);
+        }
+    }
 }
 
 
