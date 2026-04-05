@@ -83,6 +83,22 @@ public class Graph {
         }
         return false;
     }
+
+    public void printPath(int src, int des, HashSet<Integer> visited, String path) {
+        if (src == des) {
+            path = path + des;
+            System.out.println(path);
+        }
+
+        visited.add(src);
+        // call hasPath recursively for all nbrs of src only if not visited yet
+        for (int nbrs : map.get(src).keySet()) {
+            if (!visited.contains(nbrs)) {
+                printPath(nbrs, des, visited, path + src + " --> ");
+            }
+        }
+        visited.remove(src);
+    }
 }
 
 
