@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Graph {
     private HashMap<Integer, HashMap<Integer, Integer>> map;
@@ -64,17 +65,21 @@ public class Graph {
         }
     }
 
-    public boolean hasPath(int src, int des) {
-        if(src == des) {
+    public boolean hasPath(int src, int des, HashSet<Integer> visited) {
+        if (src == des) {
             return true;
         }
 
-        // call hasPath recursively for all nbrs of src
-        for(int nbrs : map.get(src).keySet()) {
-            boolean ans = hasPath(nbrs, des);
-            if(ans) {
-                return true;
+        visited.add(src);
+        // call hasPath recursively for all nbrs of src only if not visited yet
+        for (int nbrs : map.get(src).keySet()) {
+            if (!visited.contains(nbrs)) {
+                boolean ans = hasPath(nbrs, des, visited);
+                if (ans) {
+                    return true;
+                }
             }
+
         }
         return false;
     }

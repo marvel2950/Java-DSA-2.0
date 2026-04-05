@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class GraphClient {
     public static void main(String args[]) {
         Graph g = new Graph(7);
@@ -25,7 +27,7 @@ public class GraphClient {
 //
 //        g.display();
 
-        System.out.println(g.hasPath(1, 7));
+        System.out.println(g.hasPath(1, 7 , new HashSet<>()));
 
 
     }
