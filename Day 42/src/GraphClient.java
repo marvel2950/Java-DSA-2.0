@@ -27,8 +27,10 @@ public class GraphClient {
 //
 //        g.display();
 
-        System.out.println(g.hasPath(1, 7 , new HashSet<>()));
-        g.printPath(1, 7 , new HashSet<>(), "");
+        System.out.println(g.hasPath(1, 7, new HashSet<>()));
+        g.printPath(1, 7, new HashSet<>(), "");
+
+        System.out.println(g.bfs(1, 7));
 
 
     }

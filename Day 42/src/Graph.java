@@ -1,5 +1,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
     private HashMap<Integer, HashMap<Integer, Integer>> map;
@@ -98,6 +100,39 @@ public class Graph {
             }
         }
         visited.remove(src);
+    }
+
+    public boolean bfs(int src, int des) {
+        Queue<Integer> q = new LinkedList<>();
+        HashSet<Integer> visited = new HashSet<>();
+        q.add(src);
+
+        while (!q.isEmpty()) {
+            // 1. remove
+            int r = q.poll(); // r -> removed node
+
+            // 2. ignore if already visited
+            if (visited.contains(r)) {
+                continue;
+            }
+
+            // 3. mark visited
+            visited.add(r);
+
+            // 4. self work
+            if (r == des) {
+                return true;
+            }
+
+            // 5. add unvisited nbrs
+            for (int nbrs : map.get(r).keySet()) {
+                if (!visited.contains(nbrs)) {
+                    q.add(nbrs);
+                }
+            }
+
+        }
+        return false;
     }
 }
 
